@@ -8,7 +8,7 @@ cd ${OPENSHIFT_DATA_DIR}
 
 if [ ! -d "scala-$VERSION" ]; then
   echo "Download scala $VERSION"
-  curl -s -o ${OPENSHIFT_DATA_DIR}/scala-$VERSION.tgz http://downloads.typesafe.com/scala/${VERSION}/scala-${VERSION}.tgz 
+  curl -o ${OPENSHIFT_DATA_DIR}/scala-$VERSION.tgz http://downloads.typesafe.com/scala/${VERSION}/scala-${VERSION}.tgz 
   tar xzf scala-$VERSION.tgz
   rm -f scala-$VERSION.tgz
 fi
@@ -21,7 +21,7 @@ ln -s ${OPENSHIFT_DATA_DIR}/scala-$VERSION scala
 
 if [ ! -d "sbt" ]; then
   echo "Download sbt $SBT_VERSION"
-  curl -s -o ${OPENSHIFT_DATA_DIR}/sbt.tgz http://dl.bintray.com/sbt/native-packages/sbt/${SBT_VERSION}/sbt-${SBT_VERSION}.tgz
+  curl -L -o ${OPENSHIFT_DATA_DIR}/sbt.tgz http://dl.bintray.com/sbt/native-packages/sbt/${SBT_VERSION}/sbt-${SBT_VERSION}.tgz
   tar xzf sbt.tgz
-  rm -f xzf sbt.tgz
+  rm -f sbt.tgz
 fi
