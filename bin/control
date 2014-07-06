@@ -4,11 +4,12 @@ PATH=${OPENSHIFT_DATA_DIR}/scala/bin/:${OPENSHIFT_DATA_DIR}/sbt/bin/:/bin/:/usr/
 
 function start {
     cd $OPENSHIFT_REPO_DIR
-    nohup ./start.sh >> $OPENSHIFT_SCALA_LOG_DIR/scala.log 2>&1  &
+    ./start.sh
 }
 
 function stop {
-    killall java || true
+    cd $OPENSHIFT_REPO_DIR
+    ./stop.sh
 }
 
 function restart {
@@ -25,7 +26,7 @@ function build {
     unset GIT_WORK_TREE
 
     cd $OPENSHIFT_REPO_DIR
-    sbt compile
+    sbt assembly
 }
 
 function tidy {
